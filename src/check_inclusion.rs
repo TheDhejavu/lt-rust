@@ -16,7 +16,7 @@ impl Solution {
         }
         if s1_buff == s2_buff {
             return true;
-        }
+        } 
         // s1: aaa
         // s2: aca|baaabc|
         // 2 - 2
@@ -30,3 +30,5 @@ impl Solution {
         false
     }
 }
+
+// [ 8,7,5,3,9,8]

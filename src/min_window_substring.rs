@@ -19,7 +19,7 @@ impl Solution {
         }
 
         let mut seen = 0;
-        let mut need = t.len();
+        let need = t.len();
         let mut left = 0;
 
         for (right, &byte) in s_bytes.iter().enumerate() {
