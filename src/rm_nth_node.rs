@@ -27,8 +27,8 @@ impl Solution {
         }
 
         while let Some(node) = fast {
-            fast = node.next.as_ref();
-            slow = &mut slow.as_mut().unwrap().next;
+          fast = node.next.as_ref();
+          slow = &mut slow.as_mut().unwrap().next;
         }
 
         slow.as_mut().unwrap().next = slow.as_mut().unwrap().next.as_mut().unwrap().next.take();

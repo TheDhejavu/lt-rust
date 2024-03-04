@@ -19,7 +19,7 @@ impl TimeMap {
             self.database.insert(key.to_string(), Vec::new());
         }
         let data = (timestamp, value);
-        self.database.entry(key).and_modify(|vec| {
+        self.database.entry(key).and_modify(|vec: &mut Vec<(i32, String)>| {
             vec.push(data);
         });
     }
