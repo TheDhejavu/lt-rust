@@ -28,7 +28,7 @@ impl Solution {
             if t_count[byte as usize] > 0 && window_set[byte as usize] <= t_count[byte as usize] {
                 seen += 1;
             }
-
+           
             while seen == need {
                 if right - left + 1 < result.1 - result.0 + 1{
                     result = (left, right);
