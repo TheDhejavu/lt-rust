@@ -17,7 +17,6 @@ impl LRUCache {
             lru_stack: std::collections::VecDeque::new(),
         }
     }
-    
     fn get(&mut self, key: i32) -> i32 {
         if !self.cache.contains_key(&key) {
             self.touch(key);
@@ -26,7 +25,6 @@ impl LRUCache {
 
         -1
     }
-    
     fn put(&mut self, key: i32, value: i32) {
         if self.cache.contains_key(&key) {
             self.touch(key);
