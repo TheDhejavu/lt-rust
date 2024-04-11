@@ -42,7 +42,7 @@ impl Solution {
                 Solution::build_graph(root_node.borrow().left.clone(), Some(root_node.borrow().val), graph);
             }
 
-             if let Some(right_root_node) = right {
+            if let Some(right_root_node) = right {
                 if !graph.contains_key(&right_root_node.borrow().val) {
                     graph.insert(right_root_node.borrow().val, Vec::new());
                 }
