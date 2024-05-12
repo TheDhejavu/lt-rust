@@ -34,8 +34,8 @@ impl Solution {
         }
     }
     pub fn diameter_of_binary_tree(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        let mut memo: i32 = 0;
-        Solution::dfs(root, &mut memo);
-        memo
+      let mut memo: i32 = 0;
+      Solution::dfs(root, &mut memo);
+      memo
     }
 }

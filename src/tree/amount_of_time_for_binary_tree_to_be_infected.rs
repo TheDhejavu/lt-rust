@@ -29,7 +29,6 @@ impl Solution {
                     vec.push(root_node.borrow().val);
                 });
             }
-
             let left = root_node.borrow().left.clone();
             let right = root_node.borrow().right.clone();
             if let Some(left_root_node) = left {
