@@ -1,5 +1,5 @@
-use std::collections::HashSet;
 use std::collections::HashMap;
+use std::collections::HashSet;
 
 impl Solution1 {
     pub fn min_extra_char(s: String, dictionary: Vec<String>) -> i32 {
@@ -20,7 +20,6 @@ impl Solution1 {
     }
 }
 
-
 struct TrieNode {
     children: HashMap<String, TrieNode>,
     end_of_word: bool,
@@ -28,13 +27,20 @@ struct TrieNode {
 
 impl TrieNode {
     pub fn new() -> Self {
-        Self { children: HashMap::new(), end_of_word: false }
+        Self {
+            children: HashMap::new(),
+            end_of_word: false,
+        }
     }
     pub fn insert(&mut self, word: String) {
         let mut node = self;
         for char in word.chars() {
-            node = node.children.entry(char.to_string()).or_insert_with(TrieNode::new);
+            node = node
+                .children
+                .entry(char.to_string())
+                .or_insert_with(TrieNode::new);
         }
+
         node.end_of_word = true;
     }
 }
@@ -42,9 +48,9 @@ impl TrieNode {
 impl Solution2 {
     pub fn min_extra_char(s: String, dictionary: Vec<String>) -> i32 {
         let n = s.len();
-        let mut dp: Vec<i32> = vec![47483647; n + 1]; 
+        let mut dp: Vec<i32> = vec![47483647; n + 1];
         let mut root = TrieNode::new();
-        for word in dictionary{
+        for word in dictionary {
             root.insert(word);
         }
 
@@ -54,7 +60,7 @@ impl Solution2 {
             let mut node = &root;
             for j in i..n {
                 let k = s.chars().nth(j).unwrap();
-                if let Some(next_node) = node.children.get(&k.to_string())  {
+                if let Some(next_node) = node.children.get(&k.to_string()) {
                     if next_node.end_of_word {
                         dp[j + 1] = std::cmp::min(dp[j + 1], dp[i]);
                     }
